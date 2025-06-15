@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Digital Wellbeing Movement</title>
+<script src="https://cdn.tailwindcss.com/3.4.16">
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.gradient-bg {
+background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+}
+.challenge-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease;
+}
+</style>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: { primary: "#4f46e5", secondary: "#9333ea" },
+      borderRadius: {
+        none: "0px",
+        sm: "4px",
+        DEFAULT: "8px",
+        md: "12px",
+        lg: "16px",
+        xl: "20px",
+        "2xl": "24px",
+        "3xl": "32px",
+        full: "9999px",
+        button: "8px",
+      },
+    },
+  },
+};
+</script>
+
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+                <div class="flex items-center">
+    <img src="aa-logo.png" alt="Analogue April Logo" class="h-12 w-auto mr-3">
+    <span class="sr-only">Analogue April</span>
+</div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6 items-center">
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        Support Us <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Raise Funds</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Donate</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Resource Tips</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Events</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Where Do Funds Go?</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        About Us <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Movement</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Cause</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Impact</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Story</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Values</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Cause Areas</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        Smartphone Health <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Finding Balance</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Healthy Habits</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Healthy Tips</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        Digital Challenges <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pre-April Challenges</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">April Commitment</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        Blog & Resources <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Blogs</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Publications</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="font-medium text-gray-700 hover:text-blue-600">LOGIN</a>
+                <a href="#" class="font-medium text-gray-700 hover:text-blue-600">REGISTER</a>
+                <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition">DONATE</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden">
+            <div class="container mx-auto px-4 py-3">
+                <div class="space-y-2">
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            Support Us <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Raise Funds</a>
+                            <a href="#" class="block py-2 text-gray-700">Donate</a>
+                            <a href="#" class="block py-2 text-gray-700">Resource Tips</a>
+                            <a href="#" class="block py-2 text-gray-700">Events</a>
+                            <a href="#" class="block py-2 text-gray-700">Where Do Funds Go?</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            About Us <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Our Movement</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Cause</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Impact</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Story</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Values</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Cause Areas</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            Smartphone Health <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Finding Balance</a>
+                            <a href="#" class="block py-2 text-gray-700">Healthy Habits</a>
+                            <a href="#" class="block py-2 text-gray-700">Healthy Tips</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            Digital Challenges <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Pre-April Challenges</a>
+                            <a href="#" class="block py-2 text-gray-700">April Commitment</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            Blog & Resources <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Blogs</a>
+                            <a href="#" class="block py-2 text-gray-700">Publications</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col space-y-2 pt-4 border-t">
+                        <a href="#" class="block py-2 text-center bg-blue-600 text-white rounded-md font-medium">LOGIN</a>
+                        <a href="#" class="block py-2 text-center bg-gray-200 text-gray-800 rounded-md font-medium">REGISTER</a>
+                        <a href="#" class="block py-2 text-center bg-green-600 text-white rounded-md font-medium">DONATE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+<main class="flex-grow flex items-center justify-center py-16 px-4">
+<div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+<h1 class="text-3xl font-bold text-center mb-8">Register</h1>
+<div class="space-y-4 mb-8">
+<h2 class="text-xl font-bold mb-4">Already have an account?</h2>
+<p class="text-gray-600 mb-4">Log in with</p>
+<button class="w-full bg-[#1877F2] text-white py-3 px-4 rounded-button flex items-center justify-center gap-2 hover:bg-[#1877F2]/90 transition">
+<i class="ri-facebook-fill ri-lg"></i>
+Login with Facebook
+</button>
+<button class="w-full bg-black text-white py-3 px-4 rounded-button flex items-center justify-center gap-2 hover:bg-black/90 transition">
+<i class="ri-apple-fill ri-lg"></i>
+Login with Apple
+</button>
+<button class="w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded-button flex items-center justify-center gap-2 hover:bg-gray-50 transition">
+<i class="ri-google-fill ri-lg"></i>
+Login with Google
+</button>
+</div>
+<div class="relative my-8">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-gray-200"></div>
+</div>
+<div class="relative flex justify-center text-sm">
+<span class="px-4 bg-white text-gray-500">Or with email</span>
+</div>
+</div>
+<form class="space-y-4">
+<div>
+<input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-button border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
+</div>
+<div class="relative">
+<input type="password" placeholder="Password" class="w-full px-4 py-3 rounded-button border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
+<button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+<i class="ri-eye-line ri-lg"></i>
+</button>
+</div>
+<div class="flex justify-end">
+<a href="#" class="text-primary hover:text-primary/80 text-sm">Forgot your password?</a>
+</div>
+<button type="submit" class="w-full bg-primary text-white py-3 px-4 rounded-button hover:bg-primary/90 transition">
+Log in
+</button>
+</form>
+<p class="mt-6 text-sm text-gray-600 text-center">
+We take your privacy seriously. Read more on our 
+<a href="#" class="text-primary hover:text-primary/80 underline">collection statement</a>
+</p>
+</div>
+</main>
+
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid md:grid-cols-4 gap-8 mb-12">
+<div>
+<h3 class="text-xl font-bold mb-4">Analogue April</h3>
+<p class="text-gray-400 mb-4">Taking back our time and mental well-being in a digital world.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-olors">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Support Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Smartphone Health</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Digital Challenges</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Blog & Resources</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-4">Support</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-4">Newsletter</h3>
+<p class="text-gray-400 mb-4">Subscribe to our newsletter for the latest updates.</p>
+<div class="flex">
+<input type="email" placeholder="Your email" class="px-4 py-2 rounded-l border-none focus:outline-none focus:ring-2 focus:ring-primary text-gray-800 w-full">
+<button class="bg-primary text-white px-4 py-2 rounded-r !rounded-button whitespace-nowrap">Subscribe</button>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Analogue April. All rights reserved.</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-400 hover:text-white text-sm">Privacy</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm">Terms</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm">Cookies</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+
+
+<script id="passwordVisibility">
+document.addEventListener("DOMContentLoaded", function () {
+  const passwordInput = document.querySelector('input[type="password"]');
+  const visibilityToggle = document.querySelector(".ri-eye-line");
+
+  if (visibilityToggle && passwordInput) {
+    visibilityToggle.addEventListener("click", function () {
+      const type =
+        passwordInput.getAttribute("type") === "password" ? "text" : "password";
+      passwordInput.setAttribute("type", type);
+
+      this.classList.toggle("ri-eye-line");
+      this.classList.toggle("ri-eye-off-line");
+    });
+  }
+});
+</script>
+<script id="formValidation">
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+  const emailInput = form.querySelector('input[type="email"]');
+  const passwordInput = form.querySelector('input[type="password"]');
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let isValid = true;
+
+    if (!emailInput.value.trim()) {
+      emailInput.classList.add("border-red-500");
+      isValid = false;
+    } else {
+      emailInput.classList.remove("border-red-500");
+    }
+
+    if (!passwordInput.value.trim()) {
+      passwordInput.classList.add("border-red-500");
+      isValid = false;
+    } else {
+      passwordInput.classList.remove("border-red-500");
+    }
+
+    if (isValid) {
+      // Here you would typically handle the login process
+      console.log("Form submitted:", {
+        email: emailInput.value,
+        password: passwordInput.value,
+      });
+    }
+  });
+});
+</script>
+
+</script>
+<script id="filterButtons">
+document.addEventListener("DOMContentLoaded", function () {
+  const filterButtons = document.querySelectorAll(".rounded-full");
+  const challengeCards = document.querySelectorAll(".challenge-card");
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      // Reset all buttons
+      filterButtons.forEach((btn) => {
+        btn.classList.remove("bg-primary", "text-white");
+        btn.classList.add("bg-gray-100", "text-gray-700");
+      });
+      // Highlight selected button
+      this.classList.remove("bg-gray-100", "text-gray-700");
+      this.classList.add("bg-primary", "text-white");
+      const filter = this.textContent.trim();
+      // Show all challenges if "All Challenges" is selected
+      if (filter === "All Challenges") {
+        challengeCards.forEach((card) => {
+          card.style.display = "block";
+        });
+        return;
+      }
+      // Filter challenges based on difficulty level
+      challengeCards.forEach((card) => {
+        const difficulty = card.querySelector("span").textContent;
+        if (difficulty === filter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>

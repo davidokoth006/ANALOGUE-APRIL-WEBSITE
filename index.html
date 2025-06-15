@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analogue April CIC | Digital Detox Movement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .typewriter {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        
+        .vhs-overlay {
+            position: relative;
+        }
+        
+        .vhs-overlay::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+            pointer-events: none;
+        }
+        
+        .vhs-overlay::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="1" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.1"/></svg>');
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+        
+        .polaroid {
+            background: white;
+            padding: 15px 15px 60px 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: rotate(-1deg);
+            position: relative;
+        }
+        
+        .polaroid::after {
+            content: "";
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 30px;
+            background: rgba(0,0,0,0.1);
+            filter: blur(5px);
+            z-index: -1;
+        }
+        
+        .nav-item:hover .nav-dropdown {
+            display: block;
+        }
+        
+        .phone-mockup {
+            position: relative;
+            width: 250px;
+            height: 450px;
+            background: #333;
+            border-radius: 30px;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #f0f0f0;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .phone-notch {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 20px;
+            background: #333;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            z-index: 10;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: none;
+            }
+            
+            .mobile-menu.active {
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                z-index: 1000;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+                <div class="flex items-center">
+    <img src="aa-logo.png" alt="Analogue April Logo" class="h-12 w-auto mr-3">
+    <span class="sr-only">Analogue April</span>
+</div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6 items-center">
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        Support Us <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Raise Funds</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Donate</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Resource Tips</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Events</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Where Do Funds Go?</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        About Us <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Movement</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Cause</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Impact</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Story</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Values</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Cause Areas</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        Smartphone Health <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Finding Balance</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Healthy Habits</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Healthy Tips</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        Digital Challenges <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pre-April Challenges</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">April Commitment</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        Blog & Resources <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Blogs</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Publications</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="font-medium text-gray-700 hover:text-blue-600">LOGIN</a>
+                <a href="#" class="font-medium text-gray-700 hover:text-blue-600">REGISTER</a>
+                <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition">DONATE</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden">
+            <div class="container mx-auto px-4 py-3">
+                <div class="space-y-2">
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            Support Us <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Raise Funds</a>
+                            <a href="#" class="block py-2 text-gray-700">Donate</a>
+                            <a href="#" class="block py-2 text-gray-700">Resource Tips</a>
+                            <a href="#" class="block py-2 text-gray-700">Events</a>
+                            <a href="#" class="block py-2 text-gray-700">Where Do Funds Go?</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            About Us <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Our Movement</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Cause</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Impact</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Story</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Values</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Cause Areas</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            Smartphone Health <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Finding Balance</a>
+                            <a href="#" class="block py-2 text-gray-700">Healthy Habits</a>
+                            <a href="#" class="block py-2 text-gray-700">Healthy Tips</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            Digital Challenges <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Pre-April Challenges</a>
+                            <a href="#" class="block py-2 text-gray-700">April Commitment</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            Blog & Resources <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Blogs</a>
+                            <a href="#" class="block py-2 text-gray-700">Publications</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col space-y-2 pt-4 border-t">
+                        <a href="#" class="block py-2 text-center bg-blue-600 text-white rounded-md font-medium">LOGIN</a>
+                        <a href="#" class="block py-2 text-center bg-gray-200 text-gray-800 rounded-md font-medium">REGISTER</a>
+                        <a href="#" class="block py-2 text-center bg-green-600 text-white rounded-md font-medium">DONATE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16 vhs-overlay">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="typewriter text-4xl md:text-5xl font-bold mb-6">Take Back Your Time This April</h2>
+                <p class="text-xl mb-8">Join thousands in the UK's coolest offline movement. Swap your smartphone for a simpler life this April and rediscover the joy of analogue living.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#" class="bg-white text-blue-600 px-6 py-3 rounded-md font-bold text-center hover:bg-gray-100 transition">Join the Movement</a>
+                    <a href="#" class="bg-transparent border-2 border-white px-6 py-3 rounded-md font-bold text-center hover:bg-white hover:text-blue-600 transition">Learn More</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <i class="fas fa-mobile-alt text-6xl text-gray-400 mb-4"></i>
+                            <p class="typewriter text-gray-600">No Signal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="bg-yellow-100 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="typewriter text-2xl font-bold mb-4">Analogue April Starts In:</h3>
+            <div class="flex justify-center space-x-4">
+                <div class="bg-white rounded-lg shadow-md p-4 w-20">
+                    <div class="text-3xl font-bold text-blue-600">12</div>
+                    <div class="text-sm text-gray-600">Days</div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 w-20">
+                    <div class="text-3xl font-bold text-blue-600">04</div>
+                    <div class="text-sm text-gray-600">Hours</div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 w-20">
+                    <div class="text-3xl font-bold text-blue-600">22</div>
+                    <div class="text-sm text-gray-600">Minutes</div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 w-20">
+                    <div class="text-3xl font-bold text-blue-600">15</div>
+                    <div class="text-sm text-gray-600">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="typewriter text-3xl md:text-4xl font-bold mb-4">Our Movement</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Analogue April is a grassroots initiative challenging the pervasive culture of constant connectivity. Each April, we encourage individuals to swap their smartphones for basic handsets, take a break from social media, and reconnect with the world around them.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-heart text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="typewriter text-xl font-bold mb-3">Our Cause</h3>
+                    <p class="text-gray-600">We advocate for delaying smartphone and social media use in children, promoting digital mindfulness, and fostering real-world connections.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="typewriter text-xl font-bold mb-3">Our Impact</h3>
+                    <p class="text-gray-600">Participants report improved sleep, heightened focus, and deeper personal connections. Families share stories of strengthened relationships.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-book text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="typewriter text-xl font-bold mb-3">Our Story</h3>
+                    <p class="text-gray-600">Born from a conversation between friends overwhelmed by smartphone use, Analogue April has grown into a national movement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center mb-16">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="typewriter text-3xl md:text-4xl font-bold mb-6">Digital Challenges</h2>
+                    <p class="text-xl text-gray-600 mb-8">Try these challenges to gradually reduce your screen time and prepare for Analogue April.</p>
+                    <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-md font-bold hover:bg-blue-700 transition">View All Challenges</a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="polaroid">
+                        <img src="https://plus.unsplash.com/premium_photo-1683120731413-b3aa991cb64e?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFuJTIwcmVhZGluZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Person reading a book" class="w-full h-auto rounded">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-bus text-blue-600"></i>
+                        </div>
+                        <h3 class="typewriter text-xl font-bold">The Commuter Challenge</h3>
+                    </div>
+                    <p class="text-gray-600">Leave your phone in your bag for your entire commute—no scrolling, no music, no messages. Just be present with your thoughts or the world around you.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-home text-green-600"></i>
+                        </div>
+                        <h3 class="typewriter text-xl font-bold">The Door Drop</h3>
+                    </div>
+                    <p class="text-gray-600">As soon as you arrive home, drop your phone in a bowl by the door. Enjoy an evening phone-free—cook, talk, play, read, or unwind without notifications.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-bed text-purple-600"></i>
+                        </div>
+                        <h3 class="typewriter text-xl font-bold">The Bedroom Ban</h3>
+                    </div>
+                    <p class="text-gray-600">Keep your phone out of your bedroom for a full week. Use an analogue alarm clock and don't look at your phone first thing in the morning or last thing before bed.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-utensils text-yellow-600"></i>
+                        </div>
+                        <h3 class="typewriter text-xl font-bold">The Dinner Detox</h3>
+                    </div>
+                    <p class="text-gray-600">Make every mealtime phone-free, even if you're eating alone. Focus on your food, your company, and the moment without screens competing for your attention.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-bell-slash text-red-600"></i>
+                        </div>
+                        <h3 class="typewriter text-xl font-bold">The Notification Audit</h3>
+                    </div>
+                    <p class="text-gray-600">Go into your phone settings and disable all non-essential notifications. Notice how your stress levels and concentration change over the week.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-calendar-day text-indigo-600"></i>
+                        </div>
+                        <h3 class="typewriter text-xl font-bold">The Analogue Sunday</h3>
+                    </div>
+                    <p class="text-gray-600">Spend one full Sunday without a smartphone. No social media, no apps, just offline living. Read, walk, cook, or connect with loved ones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="typewriter text-3xl md:text-4xl font-bold mb-4">Our Impact</h2>
+                <p class="text-xl max-w-3xl mx-auto">Since our inception, Analogue April has helped thousands of people across the UK rediscover the benefits of reduced screen time.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-5xl font-bold mb-2">2,500+</div>
+                    <div class="text-lg">Participants</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold mb-2">87%</div>
+                    <div class="text-lg">Report better sleep</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold mb-2">92%</div>
+                    <div class="text-lg">Feel more present</div>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold mb-2">£75k</div>
+                    <div class="text-lg">Raised for charity</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="typewriter text-3xl md:text-4xl font-bold mb-4">Support Us</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Analogue April is more than just a digital detox—it's a movement to reclaim our time, focus, and mental well-being.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-pound-sign text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="typewriter text-xl font-bold mb-3">Raise Funds</h3>
+                    <p class="text-gray-600 mb-4">Turn your smartphone sabbatical into a fundraising powerhouse. Get sponsored to go smartphone-free or host screen-free events.</p>
+                    <a href="#" class="text-blue-600 font-medium hover:underline">Learn more →</a>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-hand-holding-heart text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="typewriter text-xl font-bold mb-3">Donate</h3>
+                    <p class="text-gray-600 mb-4">Every contribution fuels our mission to promote healthier digital habits and support mental well-being initiatives across the UK.</p>
+                    <a href="#" class="text-blue-600 font-medium hover:underline">Donate now →</a>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="typewriter text-xl font-bold mb-3">Where Funds Go</h3>
+                    <p class="text-gray-600 mb-4">We support mental health charities and digital literacy programs helping young people navigate the online world safely.</p>
+                    <a href="#" class="text-blue-600 font-medium hover:underline">See beneficiaries →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="typewriter text-3xl md:text-4xl font-bold mb-4">What People Say</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Hear from people who've taken the Analogue April challenge.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <p class="text-gray-500 text-sm">Teacher, London</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"After Analogue April, I realized how much time I was wasting on my phone. I've permanently deleted social media apps and feel so much more present in my life."</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David R." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">David R.</h4>
+                            <p class="text-gray-500 text-sm">Parent, Manchester</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Our family did Analogue April together and it transformed our relationships. We're keeping many of the habits we developed, especially no phones at meals."</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Priya K." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Priya K.</h4>
+                            <p class="text-gray-500 text-sm">Student, Birmingham</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"I was skeptical at first, but my sleep improved dramatically without late-night scrolling. I read 4 books in April - something I hadn't done in years!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="typewriter text-3xl md:text-4xl font-bold mb-6">Ready to Join the Movement?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Sign up now to receive our preparation guide, weekly challenges, and tips for making the most of your Analogue April experience.</p>
+            <div class="max-w-md mx-auto">
+                <form class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    <button type="submit" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-md font-bold hover:bg-yellow-300 transition">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="typewriter text-xl font-bold mb-4">Analogue April</h3>
+                    <p class="text-gray-400 mb-4">The UK's coolest offline movement, helping people reduce smartphone and social media use each April.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="typewriter font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Digital Challenges</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog & Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="typewriter font-bold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Raise Funds</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Donate</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Where Funds Go</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Events</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="typewriter font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <a href="mailto:hello@analogueapril.org" class="text-gray-400 hover:text-white">hello@analogueapril.org</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">020 1234 5678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">London, UK</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Analogue April CIC. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date();
+            const aprilFirst = new Date(now.getFullYear(), 3, 1); // April is month 3 (0-indexed)
+            
+            if (now.getMonth() >= 3 && now.getDate() > 1) {
+                aprilFirst.setFullYear(aprilFirst.getFullYear() + 1);
+            }
+            
+            const diff = aprilFirst - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.querySelectorAll('.countdown-days')[0].textContent = days.toString().padStart(2, '0');
+            document.querySelectorAll('.countdown-hours')[0].textContent = hours.toString().padStart(2, '0');
+            document.querySelectorAll('.countdown-minutes')[0].textContent = minutes.toString().padStart(2, '0');
+            document.querySelectorAll('.countdown-seconds')[0].textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Initialize countdown
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Mobile dropdown menus
+        const mobileDropdownButtons = document.querySelectorAll('#mobile-menu button');
+        mobileDropdownButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const dropdown = this.nextElementSibling;
+                dropdown.classList.toggle('hidden');
+                
+                // Rotate chevron
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

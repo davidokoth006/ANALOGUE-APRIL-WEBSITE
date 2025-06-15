@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    >
+    <title>Donate - Digital Wellbeing Movement</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#4f46e5',
+              secondary: '#9333ea'
+            },
+            borderRadius: {
+              none: '0px',
+              sm: '4px',
+              DEFAULT: '8px',
+              md: '12px',
+              lg: '16px',
+              xl: '20px',
+              '2xl': '24px',
+              '3xl': '32px',
+              full: '9999px',
+              button: '8px'
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    >
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    >
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    >
+
+    <!-- Custom Styles -->
+    <style>
+      /* RemixIcon fix */
+      :where([class^="ri-"])::before {
+        content: "\f3c2";
+      }
+
+      /* Gradient background helper */
+      .gradient-bg {
+        background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+      }
+
+      /* Custom radio styles */
+      input[type="radio"] {
+        appearance: none;
+        width: 1.2em;
+        height: 1.2em;
+        border: 2px solid #4f46e5;
+        border-radius: 50%;
+        margin-right: 0.5em;
+        position: relative;
+      }
+      input[type="radio"]:checked {
+        background-color: #4f46e5;
+        border: 2px solid #4f46e5;
+      }
+      input[type="radio"]:checked::after {
+        content: "";
+        width: 0.5em;
+        height: 0.5em;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-50 min-h-screen">
+    
+    
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+                <div class="flex items-center">
+    <img src="aa-logo.png" alt="Analogue April Logo" class="h-12 w-auto mr-3">
+    <span class="sr-only">Analogue April</span>
+</div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6 items-center">
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        Support Us <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Raise Funds</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Donate</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Resource Tips</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Events</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Where Do Funds Go?</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        About Us <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Movement</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Cause</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Impact</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Story</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Values</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Our Cause Areas</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        Smartphone Health <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Finding Balance</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Healthy Habits</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Healthy Tips</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        Digital Challenges <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pre-April Challenges</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">April Commitment</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item relative group">
+                    <button class="flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        Blog & Resources <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Blogs</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Publications</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="font-medium text-gray-700 hover:text-blue-600">LOGIN</a>
+                <a href="#" class="font-medium text-gray-700 hover:text-blue-600">REGISTER</a>
+                <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition">DONATE</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden">
+            <div class="container mx-auto px-4 py-3">
+                <div class="space-y-2">
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            Support Us <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Raise Funds</a>
+                            <a href="#" class="block py-2 text-gray-700">Donate</a>
+                            <a href="#" class="block py-2 text-gray-700">Resource Tips</a>
+                            <a href="#" class="block py-2 text-gray-700">Events</a>
+                            <a href="#" class="block py-2 text-gray-700">Where Do Funds Go?</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            About Us <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Our Movement</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Cause</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Impact</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Story</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Values</a>
+                            <a href="#" class="block py-2 text-gray-700">Our Cause Areas</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            Smartphone Health <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Finding Balance</a>
+                            <a href="#" class="block py-2 text-gray-700">Healthy Habits</a>
+                            <a href="#" class="block py-2 text-gray-700">Healthy Tips</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            Digital Challenges <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Pre-April Challenges</a>
+                            <a href="#" class="block py-2 text-gray-700">April Commitment</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <button class="flex items-center justify-between w-full font-medium text-gray-700">
+                            Blog & Resources <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="mt-2 pl-4 hidden">
+                            <a href="#" class="block py-2 text-gray-700">Blogs</a>
+                            <a href="#" class="block py-2 text-gray-700">Publications</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col space-y-2 pt-4 border-t">
+                        <a href="#" class="block py-2 text-center bg-blue-600 text-white rounded-md font-medium">LOGIN</a>
+                        <a href="#" class="block py-2 text-center bg-gray-200 text-gray-800 rounded-md font-medium">REGISTER</a>
+                        <a href="#" class="block py-2 text-center bg-green-600 text-white rounded-md font-medium">DONATE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-16">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Title -->
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold mb-4">
+            Support Our Movement
+          </h1>
+          <p class="text-gray-600 text-lg">
+            Your donation helps us create a healthier digital future for everyone
+          </p>
+        </div>
+
+        <!-- Donation Form -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <form id="donationForm" class="space-y-8">
+            <!-- Amount Selection -->
+            <div>
+              <h2 class="text-2xl font-bold mb-6">
+                Choose Your Donation Amount
+              </h2>
+
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <button
+                  type="button"
+                  class="amount-btn bg-gray-100 hover:bg-primary hover:text-white text-gray-800 py-3 px-6 rounded-button transition-colors"
+                  data-amount="15"
+                >£15</button>
+                <button
+                  type="button"
+                  class="amount-btn bg-gray-100 hover:bg-primary hover:text-white text-gray-800 py-3 px-6 rounded-button transition-colors"
+                  data-amount="23"
+                >£23</button>
+                <button
+                  type="button"
+                  class="amount-btn bg-gray-100 hover:bg-primary hover:text-white text-gray-800 py-3 px-6 rounded-button transition-colors"
+                  data-amount="32"
+                >£32</button>
+                <button
+                  type="button"
+                  class="amount-btn bg-gray-100 hover:bg-primary hover:text-white text-gray-800 py-3 px-6 rounded-button transition-colors"
+                  data-amount="47"
+                >£47</button>
+              </div>
+
+              <div class="relative">
+                <input
+                  type="number"
+                  id="customAmount"
+                  placeholder="Enter custom amount"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-button focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
+                >
+                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">
+                  £
+                </span>
+              </div>
+            </div>
+
+            <!-- Frequency -->
+            <div>
+              <h2 class="text-2xl font-bold mb-6">
+                Donation Frequency
+              </h2>
+              <div class="flex space-x-6">
+                <label class="flex items-center cursor-pointer">
+                  <input
+                    type="radio"
+                    name="frequency"
+                    value="once"
+                    checked
+                  >
+                  <span class="ml-2">One-time</span>
+                </label>
+                <label class="flex items-center cursor-pointer">
+                  <input
+                    type="radio"
+                    name="frequency"
+                    value="monthly"
+                  >
+                  <span class="ml-2">Monthly</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Donor Info -->
+            <div>
+              <h2 class="text-2xl font-bold mb-6">
+                Your Information
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-gray-700 mb-2">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-button focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
+                  >
+                </div>
+                <div>
+                  <label class="block text-gray-700 mb-2">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-button focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
+                  >
+                </div>
+                <div>
+                  <label class="block text-gray-700 mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-button focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
+                  >
+                </div>
+                <div>
+                  <label class="block text-gray-700 mb-2">
+                    Country
+                  </label>
+                  <select
+                    class="w-full px-4 py-3 border border-gray-300 rounded-button focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none pr-8"
+                  >
+                    <option value="GB">United Kingdom</option>
+                    <option value="US">United States</option>
+                    <option value="CA">Canada</option>
+                    <option value="AU">Australia</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Payment Method -->
+            <div>
+              <h2 class="text-2xl font-bold mb-6">
+                Payment Method
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button
+                  type="button"
+                  class="payment-method-btn flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 py-3 px-6 rounded-button transition-colors"
+                >
+                  <i class="ri-bank-card-line text-xl"></i>
+                  <span>Credit Card</span>
+                </button>
+                <button
+                  type="button"
+                  class="payment-method-btn flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 py-3 px-6 rounded-button transition-colors"
+                >
+                  <i class="ri-paypal-fill text-xl"></i>
+                  <span>PayPal</span>
+                </button>
+                <button
+                  type="button"
+                  class="payment-method-btn flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 py-3 px-6 rounded-button transition-colors"
+                >
+                  <i class="ri-apple-fill text-xl"></i>
+                  <span>Apple Pay</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="border-t border-gray-200 pt-6">
+              <button
+                type="submit"
+                class="w-full bg-primary text-white py-4 px-6 rounded-button hover:bg-primary/90 transition-colors text-lg font-medium"
+              >
+                Complete Donation
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Benefits -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow text-center">
+            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="ri-shield-check-line text-primary text-xl"></i>
+            </div>
+            <h3 class="font-bold mb-2">Secure Donation</h3>
+            <p class="text-gray-600">
+              Your donation is protected by secure SSL encryption
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow text-center">
+            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="ri-heart-line text-primary text-xl"></i>
+            </div>
+            <h3 class="font-bold mb-2">Tax Deductible</h3>
+            <p class="text-gray-600">
+              Your donation may be tax deductible in your country
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow text-center">
+            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="ri-mail-line text-primary text-xl"></i>
+            </div>
+            <h3 class="font-bold mb-2">Receipt by Email</h3>
+            <p class="text-gray-600">
+              You'll receive a donation receipt via email
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    
+    <!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid md:grid-cols-4 gap-8 mb-12">
+<div>
+<h3 class="text-xl font-bold mb-4">Analogue April</h3>
+<p class="text-gray-400 mb-4">Taking back our time and mental well-being in a digital world.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-olors">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Support Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Smartphone Health</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Digital Challenges</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Blog & Resources</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-4">Support</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-4">Newsletter</h3>
+<p class="text-gray-400 mb-4">Subscribe to our newsletter for the latest updates.</p>
+<div class="flex">
+<input type="email" placeholder="Your email" class="px-4 py-2 rounded-l border-none focus:outline-none focus:ring-2 focus:ring-primary text-gray-800 w-full">
+<button class="bg-primary text-white px-4 py-2 rounded-r !rounded-button whitespace-nowrap">Subscribe</button>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Analogue April. All rights reserved.</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-400 hover:text-white text-sm">Privacy</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm">Terms</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm">Cookies</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+    <!-- Interactions Script -->
+    <script id="donationInteractions">
+      document.addEventListener('DOMContentLoaded', function() {
+        const amountBtns = document.querySelectorAll('.amount-btn');
+        const customAmountInput = document.getElementById('customAmount');
+        const paymentMethodBtns = document.querySelectorAll('.payment-method-btn');
+        const form = document.getElementById('donationForm');
+
+        // Amount buttons
+        amountBtns.forEach(btn => {
+          btn.addEventListener('click', function() {
+            amountBtns.forEach(b => b.classList.remove('bg-primary', 'text-white'));
+            this.classList.add('bg-primary', 'text-white');
+            customAmountInput.value = '';
+          });
+        });
+
+        // Payment methods
+        paymentMethodBtns.forEach(btn => {
+          btn.addEventListener('click', function() {
+            paymentMethodBtns.forEach(b => b.classList.remove('bg-primary', 'text-white'));
+            this.classList.add('bg-primary', 'text-white');
+          });
+        });
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const selectedAmount =
+            document.querySelector('.amount-btn.bg-primary')?.dataset.amount ||
+            customAmountInput.value;
+          const frequency =
+            document.querySelector('input[name="frequency"]:checked').value;
+          const selectedPayment =
+            document.querySelector('.payment-method-btn.bg-primary')
+              ?.querySelector('span').textContent;
+
+          if (!selectedAmount || !selectedPayment) {
+            alert('Please select an amount and payment method');
+            return;
+          }
+
+          console.log('Donation details:', {
+            amount: selectedAmount,
+            frequency: frequency,
+            paymentMethod: selectedPayment
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

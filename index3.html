@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Analogue April CIC | Digital Detox Movement</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Rubik+Mono+One&family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    .font-bungee { font-family: 'Bungee', cursive; }
+    .font-bungee-shade { font-family: 'Bungee Shade', cursive; }
+    .font-rubik-mono { font-family: 'Rubik Mono One', sans-serif; }
+    .font-urbanist { font-family: 'Urbanist', sans-serif; }
+
+    .graffiti-bg {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect width="100%" height="100%" fill="none"/><path d="M10,10 Q20,5 30,20 T50,10 T70,30 T90,10" stroke="rgba(255,105,180,0.1)" stroke-width="2" fill="none"/><path d="M15,40 Q25,25 45,50 T75,30 T95,60" stroke="rgba(100,255,218,0.1)" stroke-width="2" fill="none"/></svg>');
+    }
+
+    .neon-text {
+      text-shadow:
+        0 0 5px rgba(255,255,255,0.3),
+        0 0 10px rgba(255,255,255,0.2),
+        0 0 15px rgba(255,255,255,0.1);
+    }
+
+    .urban-card {
+      background: rgba(0,0,0,0.7);
+      border: 2px solid #fff;
+      box-shadow: 8px 8px 0 rgba(255,255,255,0.3);
+      transition: all 0.3s ease;
+    }
+    .urban-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 12px 12px 0 rgba(255,255,255,0.4);
+    }
+
+    .sticker {
+      position: absolute;
+      background: #ff0;
+      color: #000;
+      padding: 4px 8px;
+      font-family: 'Bungee', cursive;
+      font-size: 12px;
+      transform: rotate(-5deg);
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+    }
+
+    .phone-mockup {
+      position: relative;
+      width: 250px;
+      height: 450px;
+      background: #111;
+      border-radius: 30px;
+      padding: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5),
+                  inset 0 0 20px rgba(255,255,255,0.1);
+      border: 2px solid #444;
+    }
+    .phone-notch {
+      position: absolute;
+      top: 10px; left: 50%;
+      transform: translateX(-50%);
+      width: 120px; height: 20px;
+      background: #111;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      z-index: 10;
+    }
+    .phone-screen {
+      width: 100%; height: 100%;
+      background: #000;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .graffiti-tag {
+      position: absolute;
+      font-family: 'Bungee', cursive;
+      color: white;
+      transform: rotate(-5deg);
+      text-shadow: 2px 2px 0 #000;
+    }
+
+    .btn-rebel {
+      background: linear-gradient(45deg, #ff00cc, #3333ff);
+      border: 2px solid white;
+      box-shadow: 5px 5px 0 rgba(255,255,255,0.3);
+      transition: all 0.3s ease;
+    }
+    .btn-rebel:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 8px 8px 0 rgba(255,255,255,0.4);
+    }
+
+    .btn-outline-rebel {
+      border: 2px solid white;
+      box-shadow: 5px 5px 0 rgba(255,255,255,0.3);
+      transition: all 0.3s ease;
+    }
+    .btn-outline-rebel:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 8px 8px 0 rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .counter-block {
+      background: rgba(0,0,0,0.7);
+      border: 2px solid white;
+      box-shadow: 5px 5px 0 rgba(255,255,255,0.2);
+    }
+    .counter-label {
+      background: linear-gradient(45deg, #ff00cc, #3333ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Underline for sub-headings */
+    .sub-heading {
+      font-family: 'Bungee', cursive;
+      font-size: 1.5rem;
+      color: #00ffaa;
+      text-shadow: 0 0 5px rgba(0, 255, 170, 0.5);
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+    .sub-heading::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 50%;
+      height: 4px;
+      background: #00ffaa;
+      opacity: 0.7;
+      border-radius: 2px;
+    }
+
+    /* Spray background accent */
+    .support-spray {
+      position: absolute;
+      top: -20px;
+      left: -40px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(255,105,180,0.15) 0%, rgba(255,105,180,0) 70%);
+      transform: rotate(-15deg);
+      filter: blur(8px);
+      z-index: 0;
+    }
+
+    /* Table styling for Healthy Habits */
+    .habits-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .habits-table thead {
+      background: rgba(255,255,255,0.1);
+    }
+    .habits-table th, .habits-table td {
+      padding: 12px 16px;
+      text-align: left;
+    }
+    .habits-table tbody tr:nth-child(odd) {
+      background: rgba(255,255,255,0.05);
+    }
+    .habits-table tbody tr:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Footer improvements & centering */
+    .footer {
+      background: #111;
+      color: #bbb;
+      text-align: center;
+    }
+    .footer a {
+      color: #bbb;
+      transition: color 0.2s;
+    }
+    .footer a:hover {
+      color: #ff00cc;
+    }
+    .footer .social-icon {
+      font-size: 1.25rem;
+      color: #bbb;
+      margin: 0 0.5rem;
+      transition: color 0.2s;
+    }
+    .footer .social-icon:hover {
+      color: #ff00cc;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu { display: none; }
+      .mobile-menu.active {
+        display: block;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: rgba(0,0,0,0.9); z-index: 1000;
+        border-top: 2px solid #ff00cc;
+      }
+    }
+  </style>
+</head>
+<body class="font-urbanist bg-black text-white graffiti-bg">
+  <!-- HEADER -->
+  <header class="bg-black sticky top-0 z-50 border-b-2 border-purple-500">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <!-- Logo with image -->
+      <div class="flex items-center">
+        <img src="aa-logo.png" alt="Analogue April Logo" class="h-10 w-auto"/>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-6 items-center">
+        <div class="nav-item relative group">
+          <button class="flex items-center font-bold text-white hover:text-pink-400">
+            SUPPORT US <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </button>
+          <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-black border-2 border-white py-1 z-10 hidden">
+            <a href="#support-raises" class="block px-4 py-2 text-white hover:bg-pink-500">RAISE FUNDS</a>
+            <a href="#support-donate" class="block px-4 py-2 text-white hover:bg-blue-500">DONATE</a>
+            <a href="#support-resources" class="block px-4 py-2 text-white hover:bg-purple-500">RESOURCES</a>
+          </div>
+        </div>
+
+        <div class="nav-item relative group">
+          <button class="flex items-center font-bold text-white hover:text-blue-400">
+            ABOUT US <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </button>
+          <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-black border-2 border-white py-1 z-10 hidden">
+            <a href="#about" class="block px-4 py-2 text-white hover:bg-pink-500">MOVEMENT & CAUSE</a>
+            <a href="#about-impact" class="block px-4 py-2 text-white hover:bg-blue-500">IMPACT</a>
+          </div>
+        </div>
+
+        <div class="nav-item relative group">
+          <button class="flex items-center font-bold text-white hover:text-green-400">
+            SMARTPHONE HEALTH <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </button>
+          <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-black border-2 border-white py-1 z-10 hidden">
+            <a href="#health-balance" class="block px-4 py-2 text-white hover:bg-pink-500">BALANCE</a>
+            <a href="#health-habits" class="block px-4 py-2 text-white hover:bg-blue-500">HABITS</a>
+            <a href="#health-tips" class="block px-4 py-2 text-white hover:bg-purple-500">TIPS</a>
+          </div>
+        </div>
+
+        <div class="nav-item relative group">
+          <button class="flex items-center font-bold text-white hover:text-yellow-400">
+            DIGITAL CHALLENGES <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </button>
+          <div class="nav-dropdown absolute left-0 mt-2 w-48 bg-black border-2 border-white py-1 z-10 hidden">
+            <a href="#challenges-pre" class="block px-4 py-2 text-white hover:bg-pink-500">PRE-APRIL</a>
+            <a href="#challenges-april" class="block px-4 py-2 text-white hover:bg-blue-500">APRIL COMMIT</a>
+          </div>
+        </div>
+
+        <a href="#blogs" class="font-bold text-white hover:text-purple-400">BLOGS</a>
+        <a href="#donate" class="btn-rebel px-4 py-2 rounded-md font-bold">DONATE</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="mobile-menu hidden md:hidden">
+      <div class="container mx-auto px-4 py-3">
+        <div class="space-y-4">
+          <div>
+            <button class="flex items-center justify-between w-full font-bold text-white">
+              SUPPORT US <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="mt-2 pl-4 hidden space-y-2">
+              <a href="#support-raises" class="block py-2 text-white hover:text-pink-400">RAISE FUNDS</a>
+              <a href="#support-donate" class="block py-2 text-white hover:text-blue-400">DONATE</a>
+              <a href="#support-resources" class="block py-2 text-white hover:text-purple-400">RESOURCES</a>
+            </div>
+          </div>
+          <div>
+            <button class="flex items-center justify-between w-full font-bold text-white">
+              ABOUT US <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="mt-2 pl-4 hidden space-y-2">
+              <a href="#about" class="block py-2 text-white hover:text-pink-400">MOVEMENT & CAUSE</a>
+              <a href="#about-impact" class="block py-2 text-white hover:text-blue-400">IMPACT</a>
+            </div>
+          </div>
+          <div>
+            <button class="flex items-center justify-between w-full font-bold text-white">
+              SMARTPHONE HEALTH <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="mt-2 pl-4 hidden space-y-2">
+              <a href="#health-balance" class="block py-2 text-white hover:text-pink-400">BALANCE</a>
+              <a href="#health-habits" class="block py-2 text-white hover:text-blue-400">HABITS</a>
+              <a href="#health-tips" class="block py-2 text-white hover:text-purple-400">TIPS</a>
+            </div>
+          </div>
+          <div>
+            <button class="flex items-center justify-between w-full font-bold text-white">
+              DIGITAL CHALLENGES <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="mt-2 pl-4 hidden space-y-2">
+              <a href="#challenges-pre" class="block py-2 text-white hover:text-pink-400">PRE-APRIL</a>
+              <a href="#challenges-april" class="block py-2 text-white hover:text-blue-400">APRIL COMMIT</a>
+            </div>
+          </div>
+          <div class="flex flex-col space-y-2 pt-4 border-t border-purple-500">
+            <a href="#blogs" class="block py-2 text-center bg-gradient-to-r from-pink-500 to-blue-500 text-white rounded-md font-bold">BLOGS</a>
+            <a href="#donate" class="block py-2 text-center bg-green-500 text-black rounded-md font-bold">DONATE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-black via-purple-900 to-black py-20">
+    <div class="paint-splatter"></div>
+    <div class="graffiti-tag top-10 left-10 text-pink-500 text-xl">UNPLUG!</div>
+
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
+      <div class="md:w-1/2 mb-10 md:mb-0">
+        <h1 class="font-rubik-mono text-5xl md:text-6xl mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 neon-text">
+          DIGITAL DETOX REBELLION
+        </h1>
+        <p class="text-xl mb-8 font-bold">
+          Join the underground movement reclaiming real life from the digital matrix. This April, we're going offline and you're invited.
+        </p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <a href="#" class="btn-rebel px-6 py-3 rounded-md font-bold text-center">
+            JOIN THE REVOLUTION
+          </a>
+          <a href="#" class="btn-outline-rebel px-6 py-3 rounded-md font-bold text-center">
+            LEARN MORE
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center relative">
+        <div class="phone-mockup floating">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="text-center p-4">
+              <i class="fas fa-skull-crossbones text-6xl text-pink-500 mb-4"></i>
+              <p class="font-rubik-mono text-white">DISCONNECTED</p>
+            </div>
+          </div>
+        </div>
+        <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-500 rounded-full mix-blend-overlay opacity-20 filter blur-3xl"></div>
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-pink-500 rounded-full mix-blend-overlay opacity-20 filter blur-3xl"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN SECTION -->
+  <section class="bg-black py-12 border-t-2 border-b-2 border-yellow-400">
+    <div class="container mx-auto px-4 text-center">
+      <h3 class="font-bungee text-3xl mb-6 text-yellow-400">ANALOGUE APRIL STARTS IN:</h3>
+      <div class="flex justify-center space-x-4">
+        <div class="counter-block rounded-lg p-4 w-24">
+          <div class="text-4xl font-bold countdown-days">12</div>
+          <div class="counter-label text-sm font-bold">DAYS</div>
+        </div>
+        <div class="counter-block rounded-lg p-4 w-24">
+          <div class="text-4xl font-bold countdown-hours">04</div>
+          <div class="counter-label text-sm font-bold">HOURS</div>
+        </div>
+        <div class="counter-block rounded-lg p-4 w-24">
+          <div class="text-4xl font-bold countdown-minutes">22</div>
+          <div class="counter-label text-sm font-bold">MINUTES</div>
+        </div>
+        <div class="counter-block rounded-lg p-4 w-24">
+          <div class="text-4xl font-bold countdown-seconds">15</div>
+          <div class="counter-label text-sm font-bold">SECONDS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR REBELLION -->
+  <section class="py-20 bg-black relative overflow-hidden">
+    <div class="paint-splatter"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16">
+        <h2 class="font-bungee-shade text-4xl md:text-5xl mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500">
+          OUR REBELLION
+        </h2>
+        <p class="text-xl max-w-3xl mx-auto font-bold">
+          Analogue April is the counter-culture movement pushing back against digital overload.
+          We're artists, parents, students, and professionals united in reclaiming our attention and time.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="urban-card p-8 rounded-lg relative overflow-hidden">
+          <div class="absolute top-4 right-4 w-12 h-12 bg-pink-500 rounded-full mix-blend-overlay opacity-10"></div>
+          <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-fist-raised text-white text-2xl"></i>
+          </div>
+          <h3 class="font-bungee text-xl mb-3 text-pink-400">OUR CAUSE</h3>
+          <ul class="text-gray-300 list-disc list-inside space-y-2">
+            <li>Fight the attention economy with radical presence.</li>
+            <li>No ads, no algorithms—authentic human connection only.</li>
+          </ul>
+        </div>
+        <div class="urban-card p-8 rounded-lg relative overflow-hidden">
+          <div class="absolute top-4 right-4 w-12 h-12 bg-blue-500 rounded-full mix-blend-overlay opacity-10"></div>
+          <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-chart-line text-white text-2xl"></i>
+          </div>
+          <h3 class="font-bungee text-xl mb-3 text-blue-400">OUR IMPACT</h3>
+          <ul class="text-gray-300 list-disc list-inside space-y-2">
+            <li>78% reported improved mental health last year.</li>
+            <li>92% discovered new hobbies.</li>
+            <li>100% broke free from digital chains.</li>
+          </ul>
+        </div>
+        <div class="urban-card p-8 rounded-lg relative overflow-hidden">
+          <div class="absolute top-4 right-4 w-12 h-12 bg-purple-500 rounded-full mix-blend-overlay opacity-10"></div>
+          <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-book text-white text-2xl"></i>
+          </div>
+          <h3 class="font-bungee text-xl mb-3 text-purple-400">OUR STORY</h3>
+          <ul class="text-gray-300 list-disc list-inside space-y-2">
+            <li>Born in a London basement in 2018 with 12 pioneers.</li>
+            <li>Now a nationwide movement of digital freedom advocates.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRE-APRIL CHALLENGES -->
+  <section class="py-20 bg-gradient-to-b from-black to-purple-900 relative overflow-hidden">
+    <div class="graffiti-tag top-20 left-10 text-yellow-400 text-2xl">CHALLENGE!</div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="flex flex-col md:flex-row items-center mb-16">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <h2 class="font-bungee-shade text-4xl mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-green-500">
+            DIGITAL CHALLENGES
+          </h2>
+          <p class="text-xl mb-8 font-bold">
+            Train like a pioneer with these pre-April challenges. Build analog muscles before the main event.
+          </p>
+          <a href="#challenges-pre" class="btn-rebel px-6 py-3 rounded-md font-bold">VIEW ALL CHALLENGES</a>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                 alt="Street art"
+                 class="w-full h-auto rounded-lg border-2 border-white shadow-lg"/>
+            <div class="sticker bottom-4 left-4 bg-pink-500 text-white">TRY ME!</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="challenges-pre" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="urban-card p-6 rounded-lg relative overflow-hidden">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-bus text-white"></i>
+            </div>
+            <h3 class="font-bungee text-xl text-pink-400">THE COMMUTER CHALLENGE</h3>
+          </div>
+          <p class="text-gray-300">Leave your phone in your bag on your commute. Observe the world like it’s 1999. Bonus: make eye contact with strangers.</p>
+        </div>
+
+        <div class="urban-card p-6 rounded-lg relative overflow-hidden">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-home text-white"></i>
+            </div>
+            <h3 class="font-bungee text-xl text-blue-400">THE DOOR DROP</h3>
+          </div>
+          <p class="text-gray-300">When you get home, your phone goes in a bowl by the door. No exceptions. Your family will thank you.</p>
+        </div>
+
+        <div class="urban-card p-6 rounded-lg relative overflow-hidden">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-bed text-white"></i>
+            </div>
+            <h3 class="font-bungee text-xl text-purple-400">THE BEDROOM BAN</h3>
+          </div>
+          <p class="text-gray-300">Your bedroom is phone-free. Invest in an alarm clock. Sleep and sex life will improve dramatically.</p>
+        </div>
+
+        <div class="urban-card p-6 rounded-lg relative overflow-hidden">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-utensils text-white"></i>
+            </div>
+            <h3 class="font-bungee text-xl text-yellow-400">THE DINNER DETOX</h3>
+          </div>
+          <p class="text-gray-300">No phones at the table, ever. Food tastes better when you’re not scrolling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT US -->
+  <section id="support-raises" class="py-20 bg-black relative overflow-hidden">
+    <!-- Graffiti-style spray accent behind the cards -->
+    <div class="support-spray"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-12">
+        <!-- Section main heading: neon glow -->
+        <h2 class="font-rubik-mono text-white text-4xl font-bold mb-6">SUPPORT US</h2>
+        <p class="text-xl font-bold text-gray-300">
+          Fuel our mission—raise funds, donate, or explore free resources.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- RAISE FUNDS CARD -->
+        <div class="urban-card p-8 rounded-lg relative overflow-hidden">
+          <div class="absolute top-4 right-4 w-12 h-12 bg-pink-500 rounded-full mix-blend-overlay opacity-10"></div>
+          <h3 class="sub-heading">RAISE FUNDS</h3>
+          <ul class="list-disc list-inside text-gray-300 space-y-2">
+            <li>Go smartphone-free and collect sponsorships.</li>
+            <li>Host screen-free game nights or community events.</li>
+            <li>Download our Fundraiser Toolkit for templates & tips.</li>
+          </ul>
+        </div>
+
+        <!-- DONATE CARD -->
+        <div id="support-donate" class="urban-card p-8 rounded-lg relative overflow-hidden">
+          <div class="absolute top-4 right-4 w-12 h-12 bg-blue-500 rounded-full mix-blend-overlay opacity-10"></div>
+          <h3 class="sub-heading">DONATE</h3>
+          <ul class="list-disc list-inside text-gray-300 space-y-2">
+            <li>One-time gift to support mental-wellbeing programs.</li>
+            <li>Monthly donations help us plan year-round events.</li>
+            <li>Give “In Honour Of” a friend or family member.</li>
+          </ul>
+        </div>
+
+        <!-- RESOURCES CARD -->
+        <div id="support-resources" class="urban-card p-8 rounded-lg relative overflow-hidden">
+          <div class="absolute top-4 right-4 w-12 h-12 bg-purple-500 rounded-full mix-blend-overlay opacity-10"></div>
+          <h3 class="sub-heading">RESOURCES</h3>
+          <ul class="list-disc list-inside text-gray-300 space-y-2">
+            <li>Download our Analogue Starter Kit—step-by-step guides.</li>
+            <li>Daily mini-challenges to keep you on track.</li>
+            <li>Read community stories and share your own journey.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT US -->
+  <section id="about" class="py-20 bg-gradient-to-br from-black via-purple-900 to-black relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="font-rubik-mono text-white text-4xl font-bold mb-6">ABOUT US</h2>
+      </div>
+      <ul class="list-disc list-inside text-gray-300 max-w-3xl mx-auto space-y-4 text-xl">
+        <li><strong>Movement:</strong> Founded in 2018 by friends tired of digital overload.</li>
+        <li><strong>Mission:</strong> A month-long digital detox to reclaim focus and real-life connection.</li>
+        <li><strong>Impact:</strong> 78% saw mental health gains; 92% discovered new hobbies; 100% felt freer.</li>
+        <li><strong>Growth:</strong> From 12 London pioneers to a nationwide community.</li>
+        <li><strong>Values:</strong> Mindfulness, Connection, Well-being, Simplicity, Community.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FINDING BALANCE -->
+  <section id="health-balance" class="py-20 bg-black relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="font-rubik-mono text-white text-4xl font-bold mb-6">FINDING BALANCE</h2>
+      </div>
+      <ul class="list-disc list-inside text-gray-300 max-w-3xl mx-auto space-y-4 text-xl">
+        <li>Smartphones can boost productivity but also increase stress.</li>
+        <li>Use screen-time insights to see where you might cut back.</li>
+        <li>Intentionally schedule “phone-free” blocks each day.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- HEALTHY HABITS -->
+  <section id="health-habits" class="py-20 bg-gradient-to-br from-black via-purple-900 to-black relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="font-rubik-mono text-white text-4xl font-bold mb-6">HEALTHY HABITS</h2>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="habits-table">
+          <thead>
+            <tr>
+              <th class="px-4 py-2 text-lg">Category</th>
+              <th class="px-4 py-2 text-lg">Daily Limit</th>
+              <th class="px-4 py-2 text-lg">Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="px-4 py-2 text-lg">Social &amp; Chat</td>
+              <td class="px-4 py-2 text-lg">30–60 mins</td>
+              <td class="px-4 py-2 text-lg">Reduces passive scrolling &amp; comparison.</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2 text-lg">Entertainment</td>
+              <td class="px-4 py-2 text-lg">60 mins max</td>
+              <td class="px-4 py-2 text-lg">Prevents binge-watching that cuts into sleep.</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2 text-lg">Gaming</td>
+              <td class="px-4 py-2 text-lg">30–45 mins</td>
+              <td class="px-4 py-2 text-lg">Keeps gaming healthy, avoids isolation.</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2 text-lg">Reading &amp; News</td>
+              <td class="px-4 py-2 text-lg">No strict limit</td>
+              <td class="px-4 py-2 text-lg">Avoid “doomscrolling”—use Focus Mode at night.</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2 text-lg">Productivity</td>
+              <td class="px-4 py-2 text-lg">As needed</td>
+              <td class="px-4 py-2 text-lg">Helps work but watch for procrastination traps.</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2 text-lg">Health &amp; Fitness</td>
+              <td class="px-4 py-2 text-lg">No limit</td>
+              <td class="px-4 py-2 text-lg">Encourages movement and well-being.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEALTHY TIPS -->
+  <section id="health-tips" class="py-20 bg-black relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="font-rubik-mono text-white text-4xl font-bold mb-6">HEALTHY TIPS</h2>
+      </div>
+      <ul class="list-disc list-inside text-gray-300 max-w-3xl mx-auto space-y-4 text-xl">
+        <li>Aim for &lt; 2½ hours/day of non-work screen use: 60 mins before bed, 30 mins after waking, during meals.</li>
+        <li>Pick one screen-free day each week (e.g., Sunday).</li>
+        <li>Use Wind Down Mode 1 hour before bedtime (grayscale + Do Not Disturb).</li>
+        <li>Turn off non-essential push notifications.</li>
+        <li>Set App Timers for time-draining apps in Digital Wellbeing.</li>
+        <li>Engage Focus Mode to block distracting apps during work/study.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- APRIL COMMITMENT OPTIONS -->
+  <section id="challenges-april" class="py-20 bg-gradient-to-br from-black via-purple-900 to-black relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="font-rubik-mono text-white text-4xl font-bold mb-6">APRIL COMMITMENT OPTIONS</h2>
+        <p class="text-xl">Select your level—earn bonus perks &amp; badges.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="urban-card p-8 rounded-lg relative overflow-hidden">
+          <h3 class="sub-heading">FULL ANALOGUE</h3>
+          <ul class="list-disc list-inside text-gray-300 space-y-2">
+            <li>Swap your smartphone for a basic handset—no apps.</li>
+            <li>Calls only. No texting, no browsing.</li>
+            <li>Bonus: Earn sponsor pledges per day offline.</li>
+          </ul>
+        </div>
+        <div class="urban-card p-8 rounded-lg relative overflow-hidden">
+          <h3 class="sub-heading">SOCIAL-MEDIA-FREE</h3>
+          <ul class="list-disc list-inside text-gray-300 space-y-2">
+            <li>Keep your phone—but delete all social apps.</li>
+            <li>No scrolling feeds or stories.</li>
+            <li>Bonus: Weekly leaderboard for reclaimed hours.</li>
+          </ul>
+        </div>
+        <div class="urban-card p-8 rounded-lg relative overflow-hidden">
+          <h3 class="sub-heading">SCREEN-TIME LIMITER</h3>
+          <ul class="list-disc list-inside text-gray-300 space-y-2">
+            <li>Daily non-work screen time under 90 minutes.</li>
+            <li>Use built-in timers or third-party apps.</li>
+            <li>Bonus: Earn digital badges for consistency.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOGS & PUBLICATIONS -->
+  <section id="blogs" class="py-20 bg-black relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="font-rubik-mono text-white text-4xl font-bold mb-6">BLOGS &amp; PUBLICATIONS</h2>
+        <p class="text-xl mb-8">Stay updated with research, articles, and media coverage.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Blog Item 1 -->
+        <div class="urban-card flex p-4 space-x-4 rounded-lg overflow-hidden">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/EE_logo.svg/600px-EE_logo.svg.png" 
+               alt="EE Newsroom" class="w-32 h-20 object-cover rounded-md"/>
+          <div>
+            <a href="https://images.unsplash.com/photo-1740975833734-2e0bba5d74df?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D"
+               class="text-blue-400 hover:underline font-bold">
+              EE Launches Age Guidance For Smartphone Usage To Improve Children’s Digital Awareness
+            </a>
+            <p class="text-gray-400 mt-2">EE Online Newsroom, 25 Aug 2024</p>
+          </div>
+        </div>
+        <!-- Blog Item 2 -->
+        <div class="urban-card flex p-4 space-x-4 rounded-lg overflow-hidden">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Financial_Times_Cover_%281%29.png/600px-Financial_Times_Cover_%281%29.png" 
+               alt="Financial Times" class="w-32 h-20 object-cover rounded-md"/>
+          <div>
+            <a href="https://www.ft.com/content/c122775a-f664-4c06-90c2-eba077367757"
+               class="text-blue-400 hover:underline font-bold">
+              Is There A Middle Way On Children And Smartphones?
+            </a>
+            <p class="text-gray-400 mt-2">Financial Times – Henry Mance, 12 May 2024</p>
+          </div>
+        </div>
+        <!-- Blog Item 3 -->
+        <div class="urban-card flex p-4 space-x-4 rounded-lg overflow-hidden">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/EY_logo.svg/600px-EY_logo.svg.png" 
+               alt="EY Study" class="w-32 h-20 object-cover rounded-md"/>
+          <div>
+            <a href="https://www.ey.com/en_uk/newsroom/2025/01/over-a-third-of-uk-consumers-keen-on-a-new-year-digital-detox"
+               class="text-blue-400 hover:underline font-bold">
+              EY Study: Over a Third of UK Consumers Keen on a New Year "Digital Detox"
+            </a>
+            <p class="text-gray-400 mt-2">Chris Brown, 10 Jan 2025</p>
+          </div>
+        </div>
+        <!-- Blog Item 4 -->
+        <div class="urban-card flex p-4 space-x-4 rounded-lg overflow-hidden">
+          <img src="https://upload.wikimedia.org/wikipedia/en/3/3d/University_of_Kent_logo.svg" 
+               alt="University of Kent" class="w-32 h-20 object-cover rounded-md"/>
+          <div>
+            <span class="font-bold text-gray-300">
+              Age Appropriate Design: Assessment of TikTok, Twitch &amp; YouTube Kids
+            </span>
+            <p class="text-gray-400 mt-2">University of Kent – Franqueira, Annor &amp; Kafali, 4 Aug 2022</p>
+          </div>
+        </div>
+        <!-- Blog Item 5 -->
+        <div class="urban-card flex p-4 space-x-4 rounded-lg overflow-hidden">
+          <img src="https://upload.wikimedia.org/wikipedia/en/5/5b/Alan_Turing_Institute_logo.svg" 
+               alt="Alan Turing Institute" class="w-32 h-20 object-cover rounded-md"/>
+          <div>
+            <span class="font-bold text-gray-300">
+              Understanding Engagement With Platform Safety Technology
+            </span>
+            <p class="text-gray-400 mt-2">Alan Turing Institute &amp; Oxford Internet Institute – Jonathan Bright et al., 3 Jan 2024</p>
+          </div>
+        </div>
+        <!-- Blog Item 6 -->
+        <div class="urban-card flex p-4 space-x-4 rounded-lg overflow-hidden">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/The_Guardian_2018.svg" 
+               alt="The Guardian" class="w-32 h-20 object-cover rounded-md"/>
+          <div>
+            <a href="https://www.theguardian.com/lifeandstyle/article/2024/jun/30/we-wanted-to-change-the-norm-on-smartphone-use-grassroots-campaigners-on-a-phone-free-childhood"
+               class="text-blue-400 hover:underline font-bold">
+              ‘We Wanted to Change the Norm on Smartphone Use’: Grassroots Campaigners
+            </a>
+            <p class="text-gray-400 mt-2">The Guardian – Alex Moxhakis, 30 Jun 2024</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE SECTION -->
+  <section id="donate" class="py-20 bg-gradient-to-br from-black via-purple-900 to-black relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="font-rubik-mono text-white text-4xl font-bold mb-6">DONATE</h2>
+        <p class="text-xl mb-8">Your gift helps us fund workshops, resources, and mental health programs across the UK.</p>
+      </div>
+      <div class="max-w-lg mx-auto bg-gray-900 p-8 rounded-lg border border-gray-700">
+        <form>
+          <div class="mb-6">
+            <label for="amount" class="block text-gray-300 text-xl font-semibold mb-2">Amount (£)</label>
+            <input type="number" id="amount" class="w-full bg-gray-800 border border-gray-600 text-gray-200 px-4 py-3 rounded-md focus:outline-none" placeholder="e.g. 20"/>
+          </div>
+          <div class="mb-6">
+            <label for="freq" class="block text-gray-300 text-xl font-semibold mb-2">Frequency</label>
+            <select id="freq" class="w-full bg-gray-800 border border-gray-600 text-gray-200 px-4 py-3 rounded-md focus:outline-none">
+              <option>One-Time</option>
+              <option>Monthly</option>
+            </select>
+          </div>
+          <button type="submit" class="w-full py-3 bg-gradient-to-r from-green-500 to-yellow-500 text-black font-bold rounded-md">
+            DONATE NOW
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer py-12">
+    <div class="container mx-auto px-4">
+      <!-- Centered Footer Content -->
+      <div class=" space-y-6">
+        <!-- Quick Links -->
+        <div>
+          <h3 class="font-bold text-xl mb-4">Quick Links</h3>
+          <ul class="flex justify-center flex-wrap gap-4">
+            <li><a href="#support-raises" class="hover:text-pink-400">Support Us</a></li>
+            <li><a href="#about" class="hover:text-pink-400">About Us</a></li>
+            <li><a href="#health-balance" class="hover:text-pink-400">Smartphone Health</a></li>
+            <li><a href="#challenges-april" class="hover:text-pink-400">Digital Challenges</a></li>
+          </ul>
+        </div>
+        <!-- Contact Info -->
+        <div>
+          <h3 class="font-bold text-xl mb-4">Contact Us</h3>
+          <p>Email: <a href="mailto:info@analogueapril.org" class="hover:text-pink-400">info@analogueapril.org</a></p>
+          <p>Phone: <a href="tel:+441234567890" class="hover:text-pink-400">+44 1234 567 890</a></p>
+          <p class="mt-2">Address:<br/>123 Digital Detox Street, London, UK</p>
+        </div>
+        <!-- Social Media -->
+        <div>
+          <h3 class="font-bold text-xl mb-4">Follow Us</h3>
+          <div class="flex justify-center space-x-4">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+        <p>&copy; 2025 Analogue April CIC. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle Mobile Menu
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
